@@ -1,0 +1,11 @@
+.navBarContainer{
+    background-color: rgb(24, 34, 53);
+    margin-bottom: 20px;
+}
+.links{
+    text-decoration: none;
+    padding: 10px;
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+}

@@ -1,0 +1,19 @@
+.bookContainer{
+ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    padding-bottom: 15px;
+    margin-left: 20px;
+}
+.bookTitle{
+    font-weight: bold;
+    color: black;
+    font-size: 18px;
+    text-align: center;
+}
+
+.bookImg{
+ margin-bottom: 10px;   
+}
