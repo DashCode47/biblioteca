@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAppContext } from "../store/Store";
 import Layout from "../components/Layout";
-import { useNavigate } from "react-router-dom";
+import { json, useNavigate } from "react-router-dom";
 import "./create.css";
 
 const Create = () => {
@@ -11,8 +11,13 @@ const Create = () => {
   const [intro, setIntro] = useState("");
   const [completed, setCompleted] = useState("");
   const [review, setReview] = useState("");
+  const [quote, setquote] = useState("");
   const store = useAppContext();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    loadData();
+  }, []);
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -70,13 +75,27 @@ const Create = () => {
     navigate("/");
   };
 
+  const loadData = async () => {
+    try {
+      const request = await fetch(
+        "https://api.breakingbadquotes.xyz/v1/quotes"
+      );
+      const res = await request.json();
+      setquote(res);
+      console.log(quote[0]);
+    } catch (e) {}
+  };
+
   return (
     <Layout>
       <div className="formContainer">
         <img
-          src={require("../assets/movie.gif")}
+          src={require("../assets/book.gif")}
           style={{ width: 300, position: "absolute", left: 50 }}
+          className="rolling"
         />
+        <div>"{quote[0]?.quote}"</div>
+        <div>-{quote[0]?.author}</div>
         <form onSubmit={handleSubmit} className="createForm">
           <div className="inputs">
             <div className="titles">Title</div>
