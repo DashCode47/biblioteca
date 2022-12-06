@@ -6,7 +6,7 @@
 
 <img src="./src/assets/mock.png" height="300px">
 
-##Buil with
+## Built with
 
 -JavaScript
 -React.js 18
