@@ -17,27 +17,36 @@ const View = () => {
 
   return (
     <Layout>
-      <h2>{item?.title}</h2>
-      <div>{item?.cover ? <img src={item?.cover} width="300" /> : ""}</div>
-      <div style={{ display: "flex" }}>
-        <div style={{ fontWeight: "bold", fontSize: 16 }}>Author:</div>
-        <div>{item?.author}</div>
-      </div>
-
-      <div style={{ display: "flex" }}>
-        <div style={{ fontWeight: "bold", fontSize: 16 }}>Introduction:</div>
-        <div>{item?.intro}</div>
-      </div>
-
-      <div style={{ display: "flex" }}>
-        <div style={{ fontWeight: "bold", fontSize: 16 }}>Review:</div>
-        <div>{item?.review}</div>
-      </div>
-
       <div
-        style={{ textDecoration: item?.completed ? "line-through" : "none" }}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
       >
-        {item?.completed ? "Leido" : "Por terminar"}
+        <h2>{item?.title}</h2>
+        <div>{item?.cover ? <img src={item?.cover} width="300" /> : ""}</div>
+        <div style={{ display: "flex" }}>
+          <div style={{ fontWeight: "bold", fontSize: 16 }}>Author:</div>
+          <div>{item?.author}</div>
+        </div>
+
+        <div style={{ display: "flex" }}>
+          <div style={{ fontWeight: "bold", fontSize: 16 }}>Introduction:</div>
+          <div>{item?.intro}</div>
+        </div>
+
+        <div style={{ display: "flex" }}>
+          <div style={{ fontWeight: "bold", fontSize: 16 }}>Review:</div>
+          <div>{item?.review}</div>
+        </div>
+
+        <div
+          style={{ textDecoration: item?.completed ? "line-through" : "none" }}
+        >
+          {item?.completed ? "Leido" : "Por terminar"}
+        </div>
       </div>
     </Layout>
   );
